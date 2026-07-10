@@ -273,7 +273,7 @@ router.get('/github/:username', async (req, res) => {
     const githubUsernameRegex = /^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i;
 
     if (!githubUsernameRegex.test(username)) {
-      return res.status(400).json({ msg: 'Invalid Github username' });
+      return res.status(400).json({ msg: 'Invalid GitHub username' });
     }
 
     const uri = `https://api.github.com/users/${encodeURIComponent(
