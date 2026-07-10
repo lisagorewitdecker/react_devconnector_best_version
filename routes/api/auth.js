@@ -37,7 +37,7 @@ router.post(
     const { email, password } = req.body;
 
     try {
-      let user = await User.findOne({ email });
+      let user = await User.findOne({ email: { $eq: email } });
 
       if (!user) {
         return res
