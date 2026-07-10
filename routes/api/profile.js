@@ -46,30 +46,37 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    // destructure the request
+    // destructure and allowlist request fields
     const {
+      company,
       website,
+      location,
+      status,
       skills,
+      bio,
+      githubusername,
       youtube,
       twitter,
       instagram,
       linkedin,
-      facebook,
-      // spread the rest of the fields we don't need to check
-      ...rest
+      facebook
     } = req.body;
 
-    // build a profile
+    // build a profile from explicitly allowed fields
     const profileFields = {
       user: req.user.id,
+      company,
+      location,
+      status,
+      bio,
+      githubusername,
       website:
         website && website !== ''
           ? normalize(website, { forceHttps: true })
           : '',
       skills: Array.isArray(skills)
         ? skills
-        : skills.split(',').map((skill) => ' ' + skill.trim()),
-      ...rest
+        : skills.split(',').map((skill) => ' ' + skill.trim())
     };
 
     // Build socialFields object
