@@ -28,8 +28,12 @@ router.post(
 
     const { name, email, password } = req.body;
 
+    if (typeof email !== 'string') {
+      return res.status(400).json({ errors: [{ msg: 'Invalid email' }] });
+    }
+
     try {
-      let user = await User.findOne({ email });
+      let user = await User.findOne({ email: { $eq: email } });
 
       if (user) {
         return res
