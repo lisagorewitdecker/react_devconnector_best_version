@@ -32,12 +32,12 @@
     <section class="container">
       <h1 class="large text-primary">Sign Up</h1>
       <p class="lead"><i class="fas fa-user"></i> Create Your Account</p>
-      <form class="form" action="create-profile.html">
+      <form class="form" action="create-profile.html" method="post">
         <div class="form-group">
           <input type="text" placeholder="Name" name="name" required />
         </div>
         <div class="form-group">
-          <input type="email" placeholder="Email Address" name="email" />
+          <input type="email" placeholder="Email Address" name="email" required />
           <small class="form-text"
             >This site uses Gravatar so if you want a profile image, use a
             Gravatar email</small
@@ -48,7 +48,7 @@
             type="password"
             placeholder="Password"
             name="password"
-            minLength="6"
+            minlength="6"
           />
         </div>
         <div class="form-group">
@@ -56,7 +56,7 @@
             type="password"
             placeholder="Confirm Password"
             name="password2"
-            minLength="6"
+            minlength="6"
           />
         </div>
         <input type="submit" class="btn btn-primary" value="Register" />

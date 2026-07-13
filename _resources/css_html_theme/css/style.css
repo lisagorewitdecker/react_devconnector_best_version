@@ -448,7 +448,7 @@ button {
   flex-basis: 70%;
 }
 
-.profile-github > div:last-child {
+.profile-github .repo > div:last-child {
   flex: 3;
   flex-basis: 20%;
 }
