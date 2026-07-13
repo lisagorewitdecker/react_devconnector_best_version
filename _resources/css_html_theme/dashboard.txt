@@ -1,0 +1,31 @@
+DevConnector
+	•	Developers
+	•	Posts
+	•	| Dashboard
+	•	Logout
+Dashboard
+Welcome John Doe
+Edit Profile Add Experience Add Education
+Experience Credentials
+Company
+Title
+Years
+
+Tech Guy Web Solutions
+Senior Developer
+02-03-2009 - 01-02-2014
+Delete
+Traversy Media
+Instructor & Developer
+02-03-2015 - Now
+Delete
+Education Credentials
+School
+Degree
+Years
+
+Northern Essex
+Associates
+02-03-2007 - 01-02-2009
+Delete
+Delete My Account
