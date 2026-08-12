@@ -172,11 +172,11 @@ Creating an instance of axios also cleans up our action creators in [actions/aut
 
 Note that implementing this change also requires that you use the updated code in [utils/setAuthToken.js](https://github.com/bradtraversy/devconnector_2.0/blob/master/client/src/utils/setAuthToken.js)
 Which also in turn depends on [utils/api.js](https://github.com/bradtraversy/devconnector_2.0/blob/master/client/src/utils/api.js)
-I would also recommending updating to use a [ redux subscription ](https://github.com/bradtraversy/devconnector_2.0#redux-subscription-to-manage-local-storage-) to mange setting of the auth token in headers and local storage.
+I would also recommending updating to use a [redux subscription](https://github.com/bradtraversy/devconnector_2.0#redux-subscription-to-manage-local-storage-) to mange setting of the auth token in headers and local storage.
 
 ## Remove Moment 🗑️
 
-As some of you may be aware, [Moment.js](https://www.npmjs.com/package/moment) which [ react-moment ](https://www.npmjs.com/package/react-moment) depends on has since become _legacy code_.\
+As some of you may be aware, [Moment.js](https://www.npmjs.com/package/moment) which [react-moment](https://www.npmjs.com/package/react-moment) depends on has since become _legacy code_.\
 The maintainers of Moment.js now recommend finding an alternative to their package.
 
 > Moment.js is a legacy project, now in maintenance mode.\
@@ -186,7 +186,7 @@ The maintainers of Moment.js now recommend finding an alternative to their packa
 
 Some of you in the course have been having problems installing both packages and meeting peer dependencies.\
  We can instead use the browsers built in [Intl](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl) API.\
- First create a [ utils/formatDate.js ](https://github.com/bradtraversy/devconnector_2.0/blob/master/client/src/utils/formatDate.js) file, with the following code...
+ First create a [utils/formatDate.js](https://github.com/bradtraversy/devconnector_2.0/blob/master/client/src/utils/formatDate.js) file, with the following code...
 
 ```javascript
 function formatDate(date) {
@@ -226,18 +226,18 @@ If you're updating your project you will now be able to uninstall **react-moment
 
 Since the course was released [React Router](https://reactrouter.com) has been updated to version 6
 which includes some breaking changes.
-You can see the official migration guide from version 5 [ here ](https://reactrouter.com/docs/en/v6/upgrading/v5).
+You can see the official migration guide from version 5 [here](https://reactrouter.com/docs/en/v6/upgrading/v5).
 
 ### To summarize the changes to the course code
 
-Instead of a `<Switch />` we now use a [ `<Routes />` ](https://reactrouter.com/docs/en/v6/api#routes-and-route) component.
+Instead of a `<Switch />` we now use a [`<Routes />`](https://reactrouter.com/docs/en/v6/api#routes-and-route) component.
 
-The [ `<Route />` ](https://reactrouter.com/docs/en/v6/api#routes-and-route) component no longer receives a **_component_** prop, instead we
+The [`<Route />`](https://reactrouter.com/docs/en/v6/api#routes-and-route) component no longer receives a **_component_** prop, instead we
 pass a **_element_** prop which should be a React element i.e. JSX. Routing is
 also now relative to the component.
 
 For redirection and Private routing we can no longer use `<Redirect />`, we now
-have available a [ `<Navigate />` ](https://reactrouter.com/docs/en/v6/api#navigate) component.
+have available a [`<Navigate />`](https://reactrouter.com/docs/en/v6/api#navigate) component.
 
 We no longer have access to the **_match_** and **_history_** objects in our
 component props. Instead of the match object for routing parameters we can use
@@ -256,11 +256,11 @@ wrapped in it's own `<section className="container">`, So we no longer need that
 in App.js. In most cases this just replaces the outer `<Fragment />` in the
 component.
 
-The styling also affected the [ `<Alert />`
-](client/src/components/layout/Alert.js) component as this will show in
+The styling also affected the [`<Alert />`](client/src/components/layout/Alert.js)
+component as this will show in
 addition to other page components adding it's own `<section>` would mean extra
 content shift when the alerts show. To solve this the alerts have been given
-their [ own styling ](https://github.com/bradtraversy/devconnector_2.0/blob/c5b1fc48ccfecf30b6ed85f228a337f82d93e3f9/client/src/App.css#L579) so they are `position: fixed;` and we get no content shift,
+their [own styling](https://github.com/bradtraversy/devconnector_2.0/blob/c5b1fc48ccfecf30b6ed85f228a337f82d93e3f9/client/src/App.css#L579) so they are `position: fixed;` and we get no content shift,
 which additionally makes for a smoother UI with the alerts popping up in the top
 right of the screen.
 
