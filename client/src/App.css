@@ -266,7 +266,6 @@ img {
   border: 1px solid #ccc;
   display: block;
   font-size: 1.2rem;
-  border: 1px solid #ccc;
   box-sizing: border-box;
 }
 
@@ -324,9 +323,6 @@ button {
   padding: 0.7rem 2rem;
   position: fixed;
   top: 0;
-  border-bottom: solid 1px;
-  border-bottom-color: var(--primary-color);
-  opacity: 0.9;
 }
 
 .navbar ul {
