@@ -443,6 +443,10 @@ button {
   grid-area: github;
 }
 
+.post > div:first-child {
+  text-align: center;
+}
+
 .profile-github .repo {
   display: flex;
 }
@@ -468,10 +472,6 @@ button {
   grid-template-columns: 1fr 4fr;
   grid-gap: 2rem;
   align-items: center;
-}
-
-.post > div:first-child {
-  text-align: center;
 }
 
 .post img {
