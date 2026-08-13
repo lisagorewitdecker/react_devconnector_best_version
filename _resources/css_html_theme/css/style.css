@@ -373,13 +373,13 @@ button {
   display: grid;
   grid-template-columns: 2fr 4fr 2fr;
   align-items: center;
-  padding: 1rem;
+  padding: 0;
   line-height: 1.8;
   margin-bottom: 1rem;
 }
 
-.profile > * + * {
-  margin-left: 2rem;
+.profile > * {
+  margin: 1rem;
 }
 
 /* Profile Page */
@@ -481,8 +481,8 @@ button {
   grid-template-columns: 1fr 4fr;
 }
 
-.post > * + * {
-  margin-left: 2rem;
+.post > * {
+  margin: 1rem;
 }
 
 .post > div:first-child {
@@ -565,11 +565,6 @@ button {
     text-align: center;
   }
 
-  .profile > * + * {
-    margin-left: 0;
-    margin-top: 2rem;
-  }
-
   .profile ul {
     display: none;
   }
@@ -603,11 +598,6 @@ button {
 
   .post {
     grid-template-columns: 1fr;
-  }
-
-  .post > * + * {
-    margin-left: 0;
-    margin-top: 2rem;
   }
 
   .post a,
