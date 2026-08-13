@@ -150,6 +150,9 @@ img {
   cursor: pointer;
   margin-right: 0.5rem;
   transition: opacity 0.2s ease-in;
+}
+
+.btn:focus {
   outline: none;
 }
 
@@ -291,7 +294,7 @@ button {
   color: #38a1f3;
 }
 
-.form .social-input i.fa-facebook {
+.form .social-input .fa-facebook {
   color: #3b5998;
 }
 
@@ -299,11 +302,11 @@ button {
   color: #3f729b;
 }
 
-.form .social-input i.fa-youtube {
+.form .social-input .fa-youtube {
   color: #c4302b;
 }
 
-.form .social-input i.fa-linkedin {
+.form .social-input .fa-linkedin {
   color: #0077b5;
 }
 
@@ -321,6 +324,7 @@ button {
 .navbar {
   align-items: center;
   border-bottom: solid 1px var(--primary-color);
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   opacity: 0.9;
@@ -373,7 +377,8 @@ button {
   display: grid;
   grid-template-columns: 2fr 4fr 2fr;
   align-items: center;
-  padding: 0;
+  gap: 2rem;
+  padding: 1rem;
   line-height: 1.8;
   margin-bottom: 1rem;
 }
@@ -439,8 +444,8 @@ button {
   grid-area: edu;
 }
 
-.profile-exp h2,
-.profile-edu h2 {
+.profile-exp .profile-section-heading,
+.profile-edu .profile-section-heading {
   margin-bottom: 1rem;
 }
 
@@ -478,6 +483,7 @@ button {
 .post {
   align-items: center;
   display: grid;
+  gap: 2rem;
   grid-template-columns: 1fr 4fr;
 }
 
@@ -551,7 +557,7 @@ button {
     text-align: center;
   }
 
-  .navbar h1 {
+  h1.navbar-heading {
     margin-bottom: 1rem;
   }
 
