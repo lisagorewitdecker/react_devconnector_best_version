@@ -25,7 +25,7 @@
     "normalize-url": "^5.3.0"
   },
   "devDependencies": {
-    "concurrently": "^5.3.0",
-    "nodemon": "^2.0.6"
+    "concurrently": "^10.0.4",
+    "nodemon": "^3.1.14"
   }
 }
