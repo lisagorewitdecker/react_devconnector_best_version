@@ -383,6 +383,10 @@ button {
   margin-bottom: 1rem;
 }
 
+.profile > * {
+  margin: 1rem;
+}
+
 /* Profile Page */
 .profile-grid {
   display: grid;
@@ -391,7 +395,11 @@ button {
     'about about'
     'exp edu'
     'github github';
-  grid-gap: 1rem;
+  margin: -0.5rem;
+}
+
+.profile-grid > * {
+  margin: 0.5rem;
 }
 
 .profile-top {
@@ -477,6 +485,10 @@ button {
   display: grid;
   gap: 2rem;
   grid-template-columns: 1fr 4fr;
+}
+
+.post > * {
+  margin: 1rem;
 }
 
 .post > div:first-child {

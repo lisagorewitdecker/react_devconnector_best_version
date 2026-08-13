@@ -367,10 +367,13 @@ button {
   display: grid;
   grid-template-columns: 2fr 4fr 2fr;
   align-items: center;
-  grid-gap: 2rem;
-  padding: 1rem;
+  padding: 0;
   line-height: 1.8;
   margin-bottom: 1rem;
+}
+
+.profile > * {
+  margin: 1rem;
 }
 
 /* Profile Page */
@@ -381,7 +384,11 @@ button {
     'about about'
     'exp edu'
     'github github';
-  grid-gap: 1rem;
+  margin: -0.5rem;
+}
+
+.profile-grid > * {
+  margin: 0.5rem;
 }
 
 .profile-top {
@@ -479,8 +486,11 @@ button {
 .post {
   display: grid;
   grid-template-columns: 1fr 4fr;
-  grid-gap: 2rem;
   align-items: center;
+}
+
+.post > * {
+  margin: 1rem;
 }
 
 .post img {
