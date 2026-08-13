@@ -367,10 +367,13 @@ button {
   display: grid;
   grid-template-columns: 2fr 4fr 2fr;
   align-items: center;
-  gap: 2rem;
   padding: 1rem;
   line-height: 1.8;
   margin-bottom: 1rem;
+}
+
+.profile > * + * {
+  margin-left: 2rem;
 }
 
 /* Profile Page */
@@ -381,7 +384,11 @@ button {
     'about about'
     'exp edu'
     'github github';
-  gap: 1rem;
+  margin: -0.5rem;
+}
+
+.profile-grid > * {
+  margin: 0.5rem;
 }
 
 .profile-top {
@@ -479,8 +486,11 @@ button {
 .post {
   display: grid;
   grid-template-columns: 1fr 4fr;
-  gap: 2rem;
   align-items: center;
+}
+
+.post > * + * {
+  margin-left: 2rem;
 }
 
 .post img {
@@ -549,6 +559,11 @@ button {
     text-align: center;
   }
 
+  .profile > * + * {
+    margin-left: 0;
+    margin-top: 2rem;
+  }
+
   .profile ul {
     display: none;
   }
@@ -582,6 +597,11 @@ button {
 
   .post {
     grid-template-columns: 1fr;
+  }
+
+  .post > * + * {
+    margin-left: 0;
+    margin-top: 2rem;
   }
 
   .post a,
