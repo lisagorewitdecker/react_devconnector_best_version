@@ -12,6 +12,19 @@ const Profile = require('../../models/Profile');
 const User = require('../../models/User');
 const Post = require('../../models/Post');
 
+// Custom validator to check if the URL protocol is safe (http/https)
+const isValidUrl = (value) => {
+  if (!value) return true;
+  if (typeof value !== 'string') return false;
+  try {
+    const normalized = normalize(value, { forceHttps: true });
+    const parsed = new URL(normalized);
+    return parsed.protocol === 'http:' || parsed.protocol === 'https:';
+  } catch (err) {
+    return false;
+  }
+};
+
 // @route    GET api/profile/me
 // @desc     Get current users profile
 // @access   Private
@@ -40,6 +53,12 @@ router.post(
   auth,
   check('status', 'Status is required').notEmpty(),
   check('skills', 'Skills is required').notEmpty(),
+  check('website', 'Please include a valid website URL').optional({ checkFalsy: true }).custom(isValidUrl),
+  check('youtube', 'Please include a valid YouTube URL').optional({ checkFalsy: true }).custom(isValidUrl),
+  check('twitter', 'Please include a valid Twitter URL').optional({ checkFalsy: true }).custom(isValidUrl),
+  check('instagram', 'Please include a valid Instagram URL').optional({ checkFalsy: true }).custom(isValidUrl),
+  check('linkedin', 'Please include a valid LinkedIn URL').optional({ checkFalsy: true }).custom(isValidUrl),
+  check('facebook', 'Please include a valid Facebook URL').optional({ checkFalsy: true }).custom(isValidUrl),
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
