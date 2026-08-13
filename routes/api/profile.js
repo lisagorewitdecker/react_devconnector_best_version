@@ -57,7 +57,7 @@ router.post(
   check('youtube', 'Please include a valid YouTube URL').optional({ checkFalsy: true }).custom(isValidUrl),
   check('twitter', 'Please include a valid Twitter URL').optional({ checkFalsy: true }).custom(isValidUrl),
   check('instagram', 'Please include a valid Instagram URL').optional({ checkFalsy: true }).custom(isValidUrl),
-  check('linkedin', 'Please include a valid Linkedin URL').optional({ checkFalsy: true }).custom(isValidUrl),
+  check('linkedin', 'Please include a valid LinkedIn URL').optional({ checkFalsy: true }).custom(isValidUrl),
   check('facebook', 'Please include a valid Facebook URL').optional({ checkFalsy: true }).custom(isValidUrl),
   async (req, res) => {
     const errors = validationResult(req);
