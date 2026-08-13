@@ -71,7 +71,7 @@ img {
 }
 
 .text-dark {
-  color: var(--dark-color);
+  color: #343a40;
 }
 
 /* Padding */
@@ -240,6 +240,7 @@ img {
 
 /* Overlay */
 .dark-overlay {
+  background-color: #000;
   background-color: rgba(0, 0, 0, 0.7);
   position: absolute;
   top: 0;
@@ -286,7 +287,7 @@ button {
   width: 4rem;
 }
 
-.form .social-input i.fa-twitter {
+.form .social-input .fa-twitter {
   color: #38a1f3;
 }
 
@@ -294,7 +295,7 @@ button {
   color: #3b5998;
 }
 
-.form .social-input i.fa-instagram {
+.form .social-input .fa-instagram {
   color: #3f729b;
 }
 
@@ -341,7 +342,7 @@ button {
 }
 
 .navbar a:hover {
-  color: var(--primary-color);
+  color: #17a2b8;
 }
 
 .navbar .welcome span {
@@ -470,7 +471,7 @@ button {
 .post {
   align-items: center;
   display: grid;
-  grid-gap: 2rem;
+  gap: 2rem;
   grid-template-columns: 1fr 4fr;
 }
 
@@ -494,7 +495,7 @@ button {
 
 .post .comment-count {
   background: var(--light-color);
-  color: var(--primary-color);
+  color: #17a2b8;
   padding: 0.1rem 0.2rem;
   border-radius: 5px;
   font-size: 0.8rem;
