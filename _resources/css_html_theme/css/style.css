@@ -373,7 +373,7 @@ button {
   display: grid;
   grid-template-columns: 2fr 4fr 2fr;
   align-items: center;
-  grid-gap: 2rem;
+  gap: 2rem;
   padding: 1rem;
   line-height: 1.8;
   margin-bottom: 1rem;
@@ -387,7 +387,7 @@ button {
     'about about'
     'exp edu'
     'github github';
-  grid-gap: 1rem;
+  gap: 1rem;
 }
 
 .profile-top {
@@ -471,7 +471,7 @@ button {
 .post {
   align-items: center;
   display: grid;
-  grid-gap: 2rem;
+  gap: 2rem;
   grid-template-columns: 1fr 4fr;
 }
 
