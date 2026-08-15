@@ -12,6 +12,21 @@ const Profile = require('../../models/Profile');
 const User = require('../../models/User');
 const Post = require('../../models/Post');
 
+// Custom validator to check if the URL protocol is safe (http/https)
+const isValidUrl = (value) => {
+  if (!value) return true;
+  if (typeof value !== 'string') return false;
+  try {
+    const trimmedValue = value.trim();
+    const hasProtocol = /^[a-zA-Z][a-zA-Z\d+\-.]*:/.test(trimmedValue);
+    const parsed = new URL(hasProtocol ? trimmedValue : `https://${trimmedValue}`);
+    const isHttp = parsed.protocol === 'http:' || parsed.protocol === 'https:';
+    return isHttp && Boolean(parsed.hostname);
+  } catch (err) {
+    return false;
+  }
+};
+
 // @route    GET api/profile/me
 // @desc     Get current users profile
 // @access   Private
