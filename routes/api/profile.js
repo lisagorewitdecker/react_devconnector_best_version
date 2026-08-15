@@ -17,9 +17,11 @@ const isValidUrl = (value) => {
   if (!value) return true;
   if (typeof value !== 'string') return false;
   try {
-    const normalized = normalize(value, { forceHttps: true });
-    const parsed = new URL(normalized);
-    return parsed.protocol === 'http:' || parsed.protocol === 'https:';
+    const trimmedValue = value.trim();
+    const hasProtocol = /^[a-zA-Z][a-zA-Z\d+\-.]*:/.test(trimmedValue);
+    const parsed = new URL(hasProtocol ? trimmedValue : `https://${trimmedValue}`);
+    const isHttp = parsed.protocol === 'http:' || parsed.protocol === 'https:';
+    return isHttp && Boolean(parsed.hostname);
   } catch (err) {
     return false;
   }
