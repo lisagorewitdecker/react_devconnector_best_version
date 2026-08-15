@@ -20,7 +20,8 @@ const isValidUrl = (value) => {
     const trimmedValue = value.trim();
     const hasProtocol = /^[a-zA-Z][a-zA-Z\d+\-.]*:/.test(trimmedValue);
     const parsed = new URL(hasProtocol ? trimmedValue : `https://${trimmedValue}`);
-    return parsed.protocol === 'http:' || parsed.protocol === 'https:';
+    const isHttp = parsed.protocol === 'http:' || parsed.protocol === 'https:';
+    return isHttp && Boolean(parsed.hostname);
   } catch (err) {
     return false;
   }
