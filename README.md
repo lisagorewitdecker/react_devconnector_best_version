@@ -256,8 +256,7 @@ Once merged you can push to heroku as above and your site will rebuild and be up
 
 ### Author
 
-Brad Traversy
-
+Lisa M Gorewit-Decker
 
 ### Version
 
