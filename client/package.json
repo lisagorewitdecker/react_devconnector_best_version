@@ -41,7 +41,7 @@
     },
     "underscore": ">=1.13.8",
     "serialize-javascript": ">=6.0.2",
-    "webpack-dev-server": "5.2.5",
+    "webpack-dev-server": "5.2.6",
     "@tootallnate/once": "^2.0.1",
     "postcss": "8.5.26"
   }
