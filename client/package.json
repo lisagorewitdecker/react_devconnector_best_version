@@ -43,6 +43,6 @@
     "serialize-javascript": ">=6.0.2",
     "webpack-dev-server": "5.2.5",
     "@tootallnate/once": "^2.0.1",
-    "postcss": "8.5.10"
+    "postcss": "8.5.26"
   }
 }
