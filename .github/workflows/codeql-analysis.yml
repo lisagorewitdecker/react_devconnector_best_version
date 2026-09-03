@@ -1,4 +1,4 @@
-name: CodeQL Analysis
+name: "CodeQL Advanced"
 
 on:
   push:
@@ -9,8 +9,8 @@ on:
     - cron: '35 5 * * 0'
 
 jobs:
-  codeql-analysis:
-    name: CodeQL Analyze (${{ matrix.language }})
+  analyze:
+    name: Analyze (${{ matrix.language }})
     runs-on: ubuntu-latest
     timeout-minutes: 360
     permissions:
