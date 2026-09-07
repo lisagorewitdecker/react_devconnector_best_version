@@ -45,8 +45,6 @@
     "sockjs": {
       "uuid": "11.1.1"
     },
-    "body-parser": "2.3.0",
-    "express": "5.1.0",
     "qs": "6.16.0",
     "@tootallnate/once": "^2.0.1",
     "postcss": "8.5.26"
