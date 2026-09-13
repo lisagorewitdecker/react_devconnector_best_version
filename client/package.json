@@ -45,6 +45,11 @@
     "sockjs": {
       "uuid": "11.1.1"
     },
+    "@istanbuljs/load-nyc-config": {
+      "js-yaml": "3.15.2"
+    },
+    "js-yaml": "4.3.2",
+    "svgo": "2.8.4",
     "qs": "6.16.0",
     "@tootallnate/once": "^2.0.1",
     "postcss": "8.5.26"
