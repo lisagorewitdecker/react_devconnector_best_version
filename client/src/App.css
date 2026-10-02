@@ -146,7 +146,6 @@ img {
   display: inline-block;
   font-size: 1rem;
   margin-right: 0.5rem;
-  outline: none;
   padding: 0.4rem 1.3rem;
   transition: opacity 0.2s ease-in;
 }
