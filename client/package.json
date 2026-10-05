@@ -37,7 +37,7 @@
   "proxy": "http://localhost:5000",
   "overrides": {
     "minimatch@3": {
-      "brace-expansion": "1.1.17"
+      "brace-expansion": "1.1.21"
     },
     "underscore": ">=1.13.8",
     "serialize-javascript": ">=6.0.2",
