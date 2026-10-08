@@ -133,7 +133,7 @@ right of the screen.
 
 # Quick Start 🚀
 
-Requires Node.js 20.19 or newer.
+Requires Node.js 22.12 or newer.
 
 ### Add a default.json file in config folder with the following
 
