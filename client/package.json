@@ -2,54 +2,27 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^7.2.6",
     "react-router-dom": "^7.18.2",
-    "react-scripts": "5.0.0",
     "redux": "^4.1.2",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.0",
     "uuid": "^14.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "vite",
+    "build": "vite build",
+    "test": "vitest run --passWithNoTests"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "proxy": "http://localhost:5000",
-  "overrides": {
-    "minimatch@3": {
-      "brace-expansion": "1.1.17"
-    },
-    "underscore": ">=1.13.8",
-    "serialize-javascript": ">=6.0.2",
-    "webpack-dev-server": "5.2.6",
-    "sockjs": {
-      "uuid": "11.1.1"
-    },
-"js-yaml": "4.3.2",
-    "svgo": "2.8.4",
-    "resolve-url-loader": "5.0.0",
-    "qs": "6.16.0",
-    "@tootallnate/once": "^2.0.1",
-    "postcss": "8.5.26"
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.2",
+    "vite": "^8.3.4",
+    "vitest": "^5.0.3"
   }
 }

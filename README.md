@@ -133,15 +133,21 @@ right of the screen.
 
 # Quick Start 🚀
 
+Requires Node.js 22.12 or newer.
+
 ### Add a default.json file in config folder with the following
 
 ```json
 {
   "mongoURI": "<your_mongoDB_Atlas_uri_with_credentials>",
-  "jwtSecret": "secret",
   "githubToken": "<yoursecrectaccesstoken>"
 }
 ```
+
+Set `JWT_SECRET` in your environment to a unique value generated with
+`openssl rand -base64 32`. The application will not start if it is missing or
+shorter than 32 characters. Keep local configuration files and credentials out
+of version control.
 
 ### Install server dependencies
 
