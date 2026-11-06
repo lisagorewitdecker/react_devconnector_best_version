@@ -75,6 +75,46 @@ test('all lockfile copies require follow-redirects 1.16.2 or newer', () => {
 });
 
 for (const form of ['array', 'object']) {
+  for (const destination of ['cross origin', 'same origin']) {
+    test(`${form} headers match sensitive regex characters literally on ${destination} redirects`, {
+      timeout: 5000,
+    }, async (t) => {
+      const target = destination === 'cross origin' ? await listen(t, echo) : null;
+      let original;
+      const origin = await listen(t, (req, res) => {
+        if (req.url === '/destination') return echo(req, res);
+        original = req.headers;
+        req.resume();
+        res.writeHead(302, { Location: `${target || ''}/destination` });
+        res.end();
+      });
+      const entries = [
+        ['X-Api^Key', 'test-caret-credential'],
+        ['X-Token|Secret', 'test-pipe-credential'],
+        ['X-Control-Key', 'test-control-credential'],
+        ['Authorization', 'Bearer test-token'],
+        ['X-Token', 'preserve-token-header'],
+        ['Secret', 'preserve-secret-header'],
+        ['X-Harmless', 'preserved'],
+      ];
+      const result = await request(origin, {
+        headers: form === 'array' ? entries.flat() : Object.fromEntries(entries),
+        sensitiveHeaders: ['x-aPI^kEY', 'x-tOKEN|sECRET', 'X-Control-Key'],
+      });
+      for (const [name, value] of entries) {
+        const key = name.toLowerCase();
+        assert.equal(original[key], value, `${name} must reach the initial origin`);
+        const sensitive = ['x-api^key', 'x-token|secret', 'x-control-key', 'authorization']
+          .includes(key);
+        assert.equal(
+          result.headers[key],
+          destination === 'cross origin' && sensitive ? undefined : value,
+          `${name} must be matched literally`,
+        );
+      }
+    });
+  }
+
   for (const realm of ['same realm', 'cross realm']) {
     test(`${form} headers strip credentials across origins with ${realm} sensitiveHeaders`, {
       timeout: 5000,
