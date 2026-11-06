@@ -12,6 +12,20 @@ currently being supported with security updates.
 | 4.0.x   | :white_check_mark: |
 | < 4.0   | :x:                |
 
+## Dependency Security Checks
+
+The root npm override requires follow-redirects 1.16.2 for Axios's redirect
+transport. This fixes array-form headers bypassing cross-origin credential
+stripping (GHSA-q3jh-wrc6-jgq8), and includes the follow-up fix for cross-realm
+`sensitiveHeaders` arrays (GHSA-mrwp-f3q8-3g9p).
+
+Run `npm run test:security` after dependency updates. Loopback-only regression
+tests verify credential stripping for array and object headers, cross-realm
+custom sensitive-header lists, same-origin credential retention, POST-to-GET
+content-header cleanup, and Axios redirect compatibility. Both lockfiles are
+checked for vulnerable versions; the client currently has no follow-redirects
+dependency. The existing CodeQL workflow also runs these tests.
+
 ## Reporting a Vulnerability
 
 Use this section to tell people how to report a vulnerability.
