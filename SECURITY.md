@@ -19,6 +19,12 @@ GHSA-6pq8-jhm2-2vcw (comma-format array serialization can throw on elements
 with non-callable own `toString` properties). Tests check both lockfiles,
 JSON-derived and parsed inputs, both `encodeValuesOnly` modes, nested arrays,
 null-prototype objects, ordinary serialization, and Express query/form parsing.
+Express 4's body-parser dependency is overridden to 1.20.9 for
+GHSA-27r3-jxmh-p828 (trailing bytes after compressed bodies can crash the
+process). Compressed requests remain supported with the existing 10kb decoded
+body limit. Isolated regression tests exercise gzip and deflate trailing bytes,
+pending-input draining, preservation of other request-stream consumers, ordinary
+JSON parsing, invalid JSON errors, and decompressed size-limit enforcement.
 
 The root npm override requires follow-redirects 1.16.2 for Axios's redirect
 transport. This fixes array-form headers bypassing cross-origin credential
