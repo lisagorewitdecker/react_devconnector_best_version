@@ -14,6 +14,12 @@ currently being supported with security updates.
 
 ## Dependency Security Checks
 
+The root npm override requires qs 6.16.1 for Express and body-parser, addressing
+GHSA-6pq8-jhm2-2vcw (comma-format array serialization can throw on elements
+with non-callable own `toString` properties). Tests check both lockfiles,
+JSON-derived and parsed inputs, both `encodeValuesOnly` modes, nested arrays,
+null-prototype objects, ordinary serialization, and Express query/form parsing.
+
 The root npm override requires follow-redirects 1.16.2 for Axios's redirect
 transport. This fixes array-form headers bypassing cross-origin credential
 stripping (GHSA-q3jh-wrc6-jgq8), incomplete sensitive-header regex escaping
