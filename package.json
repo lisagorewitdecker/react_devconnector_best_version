@@ -4,7 +4,7 @@
   "description": "Social network for developers",
   "main": "server.js",
   "scripts": {
-    "test:security": "node --test scripts/tests/follow-redirects-security.test.cjs",
+    "test:security": "node --test scripts/tests/follow-redirects-security.test.cjs scripts/tests/body-parser-security.test.cjs",
     "start": "node server",
     "server": "node --watch server.js",
     "client": "npm start --prefix client",
@@ -32,6 +32,7 @@
     "concurrently": "^10.0.4"
   },
   "overrides": {
+    "body-parser@<1.20.9": "1.20.9",
     "follow-redirects": "1.16.2",
     "postcss": "8.5.26",
     "resolve-url-loader": "5.0.0"
