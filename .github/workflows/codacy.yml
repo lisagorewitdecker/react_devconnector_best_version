@@ -53,6 +53,22 @@ jobs:
           # Allow any number of issues; don't fail based on issue count
           max-allowed-issues: 2147483647
 
+      - name: Set unique SARIF run categories
+        run: |
+          jq '
+            .runs |= (
+              to_entries
+              | map(
+                  .value.automationDetails = (
+                    (.value.automationDetails // {})
+                    + {id: ("codacy-" + (.key | tostring))}
+                  )
+                )
+              | map(.value)
+            )
+          ' results.sarif > results.unique.sarif
+          mv results.unique.sarif results.sarif
+
       # Upload the SARIF file generated in the previous step
       - name: Upload SARIF results file
         uses: github/codeql-action/upload-sarif@ff2f1c621b7f889edc0d3c761ac2e6a3f8cdb0dd # v4.37.7
