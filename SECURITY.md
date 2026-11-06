@@ -14,6 +14,13 @@ currently being supported with security updates.
 
 ## Dependency Security Checks
 
+Express 4's body-parser dependency is overridden to 1.20.9 for
+GHSA-27r3-jxmh-p828 (trailing bytes after compressed bodies can crash the
+process). Compressed requests remain supported with the existing 10kb decoded
+body limit. Isolated regression tests exercise gzip and deflate trailing bytes,
+pending-input draining, preservation of other request-stream consumers, ordinary
+JSON parsing, invalid JSON errors, and decompressed size-limit enforcement.
+
 The root npm override requires follow-redirects 1.16.2 for Axios's redirect
 transport. This fixes array-form headers bypassing cross-origin credential
 stripping (GHSA-q3jh-wrc6-jgq8), incomplete sensitive-header regex escaping
