@@ -61,7 +61,7 @@ jobs:
               | map(
                   .value.automationDetails = (
                     (.value.automationDetails // {})
-                    + {id: ("codacy-" + (.key | tostring) + "/")}
+                    + {id: ("codacy-" + .value.tool.driver.name + "/")}
                   )
                 )
               | map(.value)
