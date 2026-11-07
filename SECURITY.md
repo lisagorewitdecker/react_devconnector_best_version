@@ -14,6 +14,11 @@ currently being supported with security updates.
 
 ## Dependency Security Checks
 
+The root npm override requires qs 6.16.1 for Express and body-parser, addressing
+GHSA-6pq8-jhm2-2vcw (comma-format array serialization can throw on elements
+with non-callable own `toString` properties). Tests check both lockfiles,
+JSON-derived and parsed inputs, both `encodeValuesOnly` modes, nested arrays,
+null-prototype objects, ordinary serialization, and Express query/form parsing.
 Express 4's body-parser dependency is overridden to 1.20.9 for
 GHSA-27r3-jxmh-p828 (trailing bytes after compressed bodies can crash the
 process). Compressed requests remain supported with the existing 10kb decoded
