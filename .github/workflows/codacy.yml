@@ -53,8 +53,13 @@ jobs:
           # Allow any number of issues; don't fail based on issue count
           max-allowed-issues: 2147483647
 
+      # Code scanning rejects multiple runs sharing a category, so give each run a unique one
+      - name: Assign unique category per SARIF run
+        run: |
+          jq '.runs |= (to_entries | map(.value + {automationDetails: {id: ("codacy/run-" + (.key|tostring) + "/")}}))' results.sarif > results-categorized.sarif
+
       # Upload the SARIF file generated in the previous step
       - name: Upload SARIF results file
         uses: github/codeql-action/upload-sarif@ff2f1c621b7f889edc0d3c761ac2e6a3f8cdb0dd # v4.37.7
         with:
-          sarif_file: results.sarif
+          sarif_file: results-categorized.sarif
